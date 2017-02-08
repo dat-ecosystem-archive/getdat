@@ -1,0 +1,30 @@
+{
+  "name": "getdat",
+  "version": "1.0.0",
+  "description": "Bulk downloader and/or metadata downloader for large lists of HTTP and FTP urls",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datproject/getdat.git"
+  },
+  "dependencies": {
+    "content-addressable-blob-store": "^4.3.0",
+    "mkdirp": "^0.5.1",
+    "ndjson": "^1.5.0",
+    "parallel-transform": "^1.1.0",
+    "unordered-parallel-transform": "^1.0.0",
+    "pump": "^1.0.2",
+    "request": "^2.79.0",
+    "through2": "^2.0.3"
+  }
+  "keywords": [],
+  "author": "max ogden",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/datproject/getdat/issues"
+  },
+  "homepage": "https://github.com/datproject/getdat#readme"
+}
