@@ -90,7 +90,7 @@ function getResponse (item, cb) {
     setTimeout(function () {
       retryTime = 5000 // after first try
       try {
-        var r = request(item.url, {agentOptions: agentOptions, headers: reqHeaders})
+        var r = request(item.url, {agentOptions: agentOptions, headers: reqHeaders, time: true})
       } catch (e) {
         e.errType = 'requestInitError'
         return error(e)
@@ -101,7 +101,18 @@ function getResponse (item, cb) {
       })
       r.on('response', function (re) {
         var elapsed = Date.now() - start
-        var meta = {url: item.url, date: new Date(), headersTook: elapsed, package_id: item.package_id, id: item.id, status: re.statusCode, rawHeaders: re.rawHeaders, headers: re.headers}
+        var meta = {
+          redirects: r._redirect && r._redirect.redirects,
+          initialUrl: item.url,
+          url: r.uri.href,
+          date: new Date(),
+          headersTook: r.elapsedTime,
+          package_id: item.package_id,
+          id: item.id,
+          status: re.statusCode,
+          rawHeaders: re.rawHeaders,
+          headers: re.headers
+        }
         var ws = blobs.createWriteStream()
         pump(re, ws, function (err) {
           if (err) {
