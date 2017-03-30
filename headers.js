@@ -33,7 +33,7 @@ function getResponse (item, cb) {
   })
   
   function error (err) {
-    var obj = {url: item.url, date: new Date(), package_id: item.package_id, id: item.id, error: error.message}
+    var obj = {url: item.url, date: new Date(), package_id: item.package_id, id: item.id, errorMessage: err.message, error: err}
     if (err.code === 'ETIMEDOUT') {
       obj.timeout = true
     }
