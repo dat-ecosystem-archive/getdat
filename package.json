@@ -1,6 +1,6 @@
 {
   "name": "getdat",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Bulk data and/or metadata downloader for large lists of HTTP and FTP urls",
   "main": "index.js",
   "scripts": {
